@@ -71,7 +71,7 @@ public class ProductGiftSetJSON extends AbstractController {
 				jsonObj.put("point", pvo.getPoint());
 				jsonObj.put("pinputdate", pvo.getPinputdate());
 				jsonObj.put("reviewCnt", pvo.getReviewCnt());
-				jsonObj.put("orderCnt", pvo.getOrderCnt());
+				jsonObj.put("orederCnt", pvo.getOrederCnt());
 				jsonArr.put(jsonObj);
 			}
 		}

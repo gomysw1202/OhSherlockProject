@@ -33,7 +33,7 @@ public class ProductVO {
 	// 목록 정렬시 활용
 	
 	private int reviewCnt; // 리뷰 개수
-	private int orderCnt; // 주문수
+	private int orederCnt; // 주문수
 	
 	public int getReviewCnt() {
 		return reviewCnt;
@@ -43,12 +43,12 @@ public class ProductVO {
 		this.reviewCnt = reviewCnt;
 	}
 
-	public int getOrderCnt() {
-		return orderCnt;
+	public int getOrederCnt() {
+		return orederCnt;
 	}
 
-	public void setOrderCnt(int orderCnt) {
-		this.orderCnt = orderCnt;
+	public void setOrederCnt(int orederCnt) {
+		this.orederCnt = orederCnt;
 	}
 
 	public void setTotalPrice(int totalPrice) {
@@ -241,28 +241,28 @@ public class ProductVO {
 		totalOriginPrice = price * oqty; // 판매당시의 제품원가 * 주문량
 		}
 		
-	public int getTotalPrice() {
-		return totalPrice;
-	}
+		public int getTotalPrice() {
+			return totalPrice;
+		}
+		
+		public int getTotalPoint() {
+			return totalPoint;
+		}
+		
+		public int getotalOrignPrice() {
+			return totalOriginPrice;
+		}
 	
-	public int getTotalPoint() {
-		return totalPoint;
-	}
-	
-	public int getotalOrignPrice() {
-		return totalOriginPrice;
-	}
-
-	@Override
-	public String toString() {
-		return "ProductVO [pnum=" + pnum + ", pname=" + pname + ", pimage=" + pimage + ", prdmanual_systemfilename="
-				+ prdmanual_systemfilename + ", prdmanual_orginfilename=" + prdmanual_orginfilename + ", pqty="
-				+ pqty + ", price=" + price + ", saleprice=" + saleprice + ", fk_snum=" + fk_snum + ", pcontent="
-				+ pcontent + ", psummary=" + psummary + ", point=" + point + ", pinputdate=" + pinputdate
-				+ ", fk_cnum=" + fk_cnum + ", categvo=" + categvo + ", spvo=" + spvo + ", totalPrice=" + totalPrice 
-				+ ", totalOriginPrice=" + totalOriginPrice 
-				+ ", totalPoint=" + totalPoint + ", reviewCnt=" + reviewCnt + ", orderCnt=" + orderCnt + "]";
-	}
+		@Override
+		public String toString() {
+			return "ProductVO [pnum=" + pnum + ", pname=" + pname + ", pimage=" + pimage + ", prdmanual_systemfilename="
+					+ prdmanual_systemfilename + ", prdmanual_orginfilename=" + prdmanual_orginfilename + ", pqty="
+					+ pqty + ", price=" + price + ", saleprice=" + saleprice + ", fk_snum=" + fk_snum + ", pcontent="
+					+ pcontent + ", psummary=" + psummary + ", point=" + point + ", pinputdate=" + pinputdate
+					+ ", fk_cnum=" + fk_cnum + ", categvo=" + categvo + ", spvo=" + spvo + ", totalPrice=" + totalPrice 
+					+ ", totalOriginPrice=" + totalOriginPrice 
+					+ ", totalPoint=" + totalPoint + ", reviewCnt=" + reviewCnt + ", orederCnt=" + orederCnt + "]";
+		}
 
 	
 	

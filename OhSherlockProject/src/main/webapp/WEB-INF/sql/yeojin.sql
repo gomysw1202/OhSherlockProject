@@ -159,14 +159,14 @@ from tbl_product;
 SELECT cname, sname, pnum, pname, pimage, PRDMANUAL_SYSTEMFILENAME, PRDMANUAL_ORGINFILENAME,
     pqty, price, saleprice, pcontent, PSUMMARY, point, pinputdate,
     reviewCnt , -- 리뷰수
-    orderCnt -- 판매수
+    orederCnt -- 판매수
 FROM
     (SELECT ROWNUM AS rno, cname, sname, pnum, pname, pimage, PRDMANUAL_SYSTEMFILENAME, PRDMANUAL_ORGINFILENAME,
-            pqty, price, saleprice, pcontent, PSUMMARY, point, pinputdate, reviewCnt, orderCnt
+            pqty, price, saleprice, pcontent, PSUMMARY, point, pinputdate, reviewCnt, orederCnt
     FROM
         (SELECT c.cname, s.sname, pnum, pname, pimage, PRDMANUAL_SYSTEMFILENAME, PRDMANUAL_ORGINFILENAME,
                 pqty, price, saleprice, pcontent, PSUMMARY, point, pinputdate,
-                (select distinct count(FK_ONUM) from tbl_order_detail where FK_PNUM=pnum) as orderCnt,
+                (select distinct count(FK_ONUM) from tbl_order_detail where FK_PNUM=pnum) as orederCnt,
                 (select count(RNUM) from tbl_review where FK_PNUM=pnum) as reviewCnt
         FROM
             (SELECT
@@ -199,14 +199,14 @@ where saleprice != price and FK_SNUM = 2;
 SELECT cname, sname, pnum, pname, pimage, PRDMANUAL_SYSTEMFILENAME, PRDMANUAL_ORGINFILENAME,
     pqty, price, saleprice, pcontent, PSUMMARY, point, pinputdate,
     reviewCnt , -- 리뷰수
-    orderCnt -- 판매수
+    orederCnt -- 판매수
 FROM
     (SELECT ROWNUM AS rno, cname, sname, pnum, pname, pimage, PRDMANUAL_SYSTEMFILENAME, PRDMANUAL_ORGINFILENAME,
-            pqty, price, saleprice, pcontent, PSUMMARY, point, pinputdate, reviewCnt, orderCnt
+            pqty, price, saleprice, pcontent, PSUMMARY, point, pinputdate, reviewCnt, orederCnt
     FROM
         (SELECT c.cname, s.sname, pnum, pname, pimage, PRDMANUAL_SYSTEMFILENAME, PRDMANUAL_ORGINFILENAME,
                 pqty, price, saleprice, pcontent, PSUMMARY, point, pinputdate,
-                (select distinct count(FK_ONUM) from tbl_order_detail where FK_PNUM=pnum) as orderCnt,
+                (select distinct count(FK_ONUM) from tbl_order_detail where FK_PNUM=pnum) as orederCnt,
                 (select count(RNUM) from tbl_review where FK_PNUM=pnum) as reviewCnt
         FROM
             (SELECT

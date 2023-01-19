@@ -165,20 +165,20 @@ public class ProductDAO implements InterProductDAO {
 	        conn = ds.getConnection();
 
 	        String sql = " SELECT cname, sname, pnum, pname, pimage, "+
-		        		 "     pqty, price, saleprice, pcontent, PSUMMARY, point, pinputdate, reviewCnt, orderCnt "+
+		        		 "     pqty, price, saleprice, pcontent, PSUMMARY, point, pinputdate, reviewCnt, orederCnt "+
 		        		 " FROM "+
 		        		 "     (SELECT ROWNUM AS rno, cname, sname, pnum, pname, pimage, "+
-		        		 "             pqty, price, saleprice, pcontent, PSUMMARY, point, pinputdate, reviewCnt, orderCnt "+
+		        		 "             pqty, price, saleprice, pcontent, PSUMMARY, point, pinputdate, reviewCnt, orederCnt "+
 		        		 "     FROM "+
 		        		 "         (SELECT c.cname, s.sname, pnum, pname, pimage, "+
 		        		 "                 pqty, price, saleprice, pcontent, PSUMMARY, point, pinputdate, "+
-		        		 "                 orderCnt,reviewCnt "+
+		        		 "                 orederCnt,reviewCnt "+
 		        		 "          FROM "+
 		        		 "             (SELECT "+
 		        		 "                 pnum, pname, pimage, "+
 		        		 "                 pqty, price, saleprice, pcontent, PSUMMARY, point, "+
 		        		 "                 to_char(pinputdate, 'yyyy-mm-dd') AS pinputdate, fk_cnum, fk_snum, "+
-		        		 "                 (select sum(oqty) from tbl_order_detail where fk_pnum = pnum) as orderCnt, "+
+		        		 "                 (select distinct count(fk_odrcode) from tbl_order_detail where FK_PNUM=pnum) as orederCnt, "+
 		        		 "                 (select count(RNUM) from tbl_review where FK_PNUM=pnum) as reviewCnt "+
 		        		 "              FROM tbl_product\n";
 	        
@@ -259,7 +259,7 @@ public class ProductDAO implements InterProductDAO {
 	            pvo.setPoint(rs.getInt("point"));
 	            pvo.setPinputdate(rs.getString("pinputdate"));
 	            pvo.setReviewCnt(rs.getInt("reviewCnt"));
-	            pvo.setOrderCnt(rs.getInt("orderCnt"));
+	            pvo.setOrederCnt(rs.getInt("orederCnt"));
 
 	            productList.add(pvo);
 	        }
@@ -795,7 +795,7 @@ public class ProductDAO implements InterProductDAO {
 
 	// 상품리뷰 테이블에서 특정리뷰 1개 행을 리뷰목록에서 비우기
 	@Override
-	public int reviewDel(String rnum) throws SQLException {
+	public int reviewLike(String rnum) throws SQLException {
 		
 		int n = 0;
 		

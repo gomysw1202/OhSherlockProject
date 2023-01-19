@@ -90,7 +90,7 @@ public class EventOrderListJSON extends AbstractController {
 				jsonObj.put("point", pvo.getPoint());  
 				jsonObj.put("pinputdate", pvo.getPinputdate());  
 				jsonObj.put("reviewCnt", pvo.getReviewCnt());  
-				jsonObj.put("orderCnt", pvo.getOrderCnt());  
+				jsonObj.put("orederCnt", pvo.getOrederCnt());  
 
 				jsonArr.put(jsonObj); // [{}, {}, {}] 하니씩 불러온 애들을 배열에 넣어주어야 한다. ==> jsonArr
 	            
